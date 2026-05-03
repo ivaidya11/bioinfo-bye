@@ -158,9 +158,10 @@ class MainWindow(QWidget):
 
         self.info_window = None
 
-        self.lives = 3 #new 
+        self.lives = 3 #new
         self.s = 0
         self.m = 0
+        self.hints_remaining = 2
 
     def setup_top_banner(self):
         banner = QFrame()
@@ -243,7 +244,8 @@ class MainWindow(QWidget):
 
         self.left_button = QPushButton("Info")
         self.left_button.clicked.connect(self.launch_info)
-        self.center_button = QPushButton("Analyze")
+        self.center_button = QPushButton("Hints (2)")
+        self.center_button.clicked.connect(self.use_hint)
         self.right_button = QPushButton("Finish")
         self.right_button.clicked.connect(self.final_remarks)
 
@@ -325,6 +327,45 @@ class MainWindow(QWidget):
         self.counter_label.setText(f"Time: {m:02d}:{s:02d}")
         self.m = m
         self.s = s
+
+    def use_hint(self):
+        if self.hints_remaining == 0:
+            return
+        text = None
+        for i in range(self.spawning_box.layout.count()):
+            widget = self.spawning_box.layout.itemAt(i).widget()
+            if isinstance(widget, DraggableLabel):
+                text = widget.text()
+                break
+
+        if text is None:
+            return
+
+        for i in range(self.spawning_box.layout.count()):
+            widget = self.spawning_box.layout.itemAt(i).widget()
+            if isinstance(widget, DraggableLabel):
+                text = widget.text()
+                original = widget.styleSheet()
+                widget.setStyleSheet("background-color: rgb(255, 255, 255); color: black;")
+                QTimer.singleShot(5000, lambda w=widget, s=original: w.setStyleSheet(s))
+                break
+
+        boxes = [self.left_drop_box, self.left2_drop_box, self.right_drop_box, self.right2_drop_box]
+        for box in boxes: 
+            if box.seq_to_group.get(text) == box.group:
+                self._highlight_box(box)
+                self.hints_remaining -= 1
+                self.center_button.setText(f"Hints ({self.hints_remaining})")
+                if self.hints_remaining == 0:
+                    self.center_button.setEnabled(False)
+                break
+
+    
+
+    def _highlight_box(self, box: DropBox):
+        original_style = box.styleSheet()
+        box.setStyleSheet("border: 2px solid green;")
+        QTimer.singleShot(5000, lambda: box.setStyleSheet(original_style))
 
 
 
