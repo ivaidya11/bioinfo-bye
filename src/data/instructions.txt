@@ -1,0 +1,21 @@
+Welcome to GeneGenius!
+
+In this game, the goal is to group genes with their most similar neighbors.
+You know when you use the same piece to make a LEGO dragon, spaceship or
+magic castle? Genes are a little like that. They encode for the building
+blocks that make up all living things (like proteins!).
+
+Sometimes, this means that very similar genes are being reused by many organisms:
+for example, many animals (even very different ones) share similar genes for their
+eyes, muscles, or how their cells divide.
+
+Knowing this, bioinformaticians often figure out what a gene does by comparing
+it to others. If genes look similar, they often do similar things too.
+
+This process of classifying genes into groups that resemble each other
+is called clustering. This means taking the "spelling" (the sequences) of
+many, many genes and sorting them into groups: it's as if you sorted LEGO
+pieces into bricks, plates and cylinders, for example.
+
+Are you ready to try it yourself? Drag similar sequences to the same box to
+create a cluster.

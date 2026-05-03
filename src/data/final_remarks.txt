@@ -1,0 +1,27 @@
+Great job: you did it!
+
+That was fun, right? And sorting through a few sequences is relatively
+easy (how fast can you do it?). But imagine trying to sort through thousands
+(or millions) of sequences... You would have to be sitting in front of a
+screen for a veeery long time.
+
+No one has that much free time. That's why bioinformaticians make the
+computers do it! A very important part of the job is writing algorithms that
+will make the computers solve difficult or time consuming problems for us.
+
+For this case, one possible algorithm works like this:
+
+1. Make each sequence its own cluster
+2. Use math formulas to calculate how different each cluster is (their distance)
+3. Merge the two closest clusters into one.
+4. Repeat until you have the correct number of clusters
+
+Have you ever played agar.io?
+It's a little like that: the clusters "eat" their closest neighbors and become
+bigger and bigger until you stop the program.
+
+This (and other) algorithms are often used to cluster genes, and that is
+done all the time! To discover what new genes do, or make new drugs,
+track diseases... All sorts of things.
+
+This was a short look at what bioinformatics can do, I hope you enjoyed it!

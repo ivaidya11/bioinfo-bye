@@ -1,0 +1,126 @@
+/* Top and Bottom Banner Strips */
+#TopBanner, #BottomBanner {
+    background-color:rgb(45, 3, 117); /* ACCENT_COLOR */
+    color: #ffffff; /* TEXT_COLOR */
+    padding: 8px 10px;
+    margin: 0px;
+}
+
+/* Title label in the top banner */
+#TopBanner QLabel {
+    font-size: 20px;
+    font-weight: bold;
+    color:rgb(255, 246, 164);
+}
+
+/* Counter and status labels */
+#TopBanner QLabel {
+    font-weight: bold;
+}
+
+/* Buttons */
+QPushButton {
+    background-color: #2b6cb0;
+    color:rgb(255, 246, 164);
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+QPushButton:hover {
+    background-color:rgb(0, 0, 0);
+}
+
+/* SpawningBox */
+QFrame#SpawningBox {
+    background-color: rgb(45, 3, 117); /* light gray */
+    border: 2px solidrgb(60, 40, 57);
+    min-height: 200px;
+    margin: 0 10px 10px 10px;
+}
+
+/* DraggableLabel */
+QLabel#DraggableLabel {
+    background-color: rgb(223, 165, 20);
+    border: 1px solid #444444;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    color: black;
+}
+
+/* DropBox */
+QFrame#DropBox {
+    background-color:rgb(164, 164, 255);
+    border: 2px solid #cccccc;  /* Changed from dashed to solid light gray */
+    min-height: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+/* Placeholder label inside DropBox */
+QFrame#DropBox QLabel {
+    color:rgb(0, 0, 0);
+}
+
+QLabel {
+    font-size: 32 px;
+}
+
+/* ScrollArea - no frame */
+QScrollArea {
+    border: none;
+}
+
+/* Layout tweak: make drop boxes containers half width */
+QFrame > QVBoxLayout > QFrame#DropBox {
+    min-width: 50%;
+}
+
+/* Remove spacing/margin from banners to stretch fully */
+#TopBanner, #BottomBanner {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+/* Vertical margin between drop boxes */
+QFrame#DropBox + QFrame#DropBox {
+    margin-top: 20px;
+}
+
+QWidget#MainWindow {
+    background-color: rgb(248, 245, 216);
+}
+
+QWidget#IntroWidow {
+    background-color: rgb(248, 245, 216);
+}
+
+#IntroText {
+    font-size: 16px;
+}
+
+#InfoWindow {
+    background-color: rgb(248, 245, 216);
+}
+
+#FinalWindow {
+    background-color: rgb(248, 245, 216);
+}
+
+#LeftTopBox {
+    background-color: #729862;
+}
+
+#LeftBotBox {
+    background-color: #41F2E0;
+}
+
+#RightTopBox {
+    background-color: #EA9E89;
+}
+
+#RightBotBox {
+    background-color: #AC2082;
+}
