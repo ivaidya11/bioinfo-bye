@@ -29,7 +29,8 @@ class DraggableLabel(QLabel): #This represents a DNA sequence block that the pla
 
             pixmap = QPixmap(self.size())
             self.render(pixmap)
-            drag.setPixmap(pixmap)
+            #made the size of box smaller once its picked up to make it easier to play the game and drop it in the right box
+            drag.setPixmap(pixmap.scaled(pixmap.width() // 2, pixmap.height(), Qt.IgnoreAspectRatio, Qt.SmoothTransformation))
 
             # Hide temporarily to avoid flicker
             self.hide()
@@ -158,6 +159,8 @@ class MainWindow(QWidget):
         self.info_window = None
 
         self.lives = 3 #new 
+        self.s = 0
+        self.m = 0
 
     def setup_top_banner(self):
         banner = QFrame()
@@ -317,16 +320,21 @@ class MainWindow(QWidget):
             self.close()
 
     def _tick_stopwatch(self):
-        self_elapsed_seconds += 1
+        self._elapsed_seconds += 1
         m, s = divmod(self._elapsed_seconds, 60)
         self.counter_label.setText(f"Time: {m:02d}:{s:02d}")
+        self.m = m
+        self.s = s
+
+
 
     def launch_info(self):
         self.info_window = InfoWindow(playing=True, grade=None)
         self.info_window.show()
 
     def final_remarks(self):
-        self.final_window = FinalWindow()
+        score = sum(len(box.contents) for box in [self.left_drop_box, self.left2_drop_box, self.right_drop_box, self.right2_drop_box])
+        self.final_window = FinalWindow(self.m, self.s, score)
         self.final_window.show()
         self._stopwatch_timer.stop()
         self.close()

@@ -6,8 +6,8 @@ from PySide6.QtWidgets import (
 )
 from PySide6.QtCore import Qt, QMimeData, QTimer
 from PySide6.QtGui import QDragEnterEvent, QDropEvent, QDrag, QMouseEvent, QPixmap
-from view.main_window import MainWindow
-from view.intro_window import IntroWidow
+from src.view.main_window import MainWindow
+from src.view.intro_window import IntroWidow
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
